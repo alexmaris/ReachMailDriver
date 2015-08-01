@@ -40,7 +40,7 @@ namespace ReachMailDriver.Util.Aspects
         {
             Console.WriteLine("\t{");
 
-            if (theObject is String)
+            if (theObject.GetType().IsValueType)
             {
                 Console.WriteLine("\t\t{0}", theObject);
             }
