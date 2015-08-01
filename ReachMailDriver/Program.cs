@@ -41,7 +41,7 @@ namespace ReachMailDriver
             // Schedule Mailer
             campaignService.ScheduleMailingCampaing(mailer, mailList, DateTime.Now.AddSeconds(10));
 
-            Console.WriteLine("Done!");
+            Console.WriteLine("Done - check your email!");
         }
     }
 }
