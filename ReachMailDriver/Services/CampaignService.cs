@@ -1,6 +1,4 @@
-﻿using Reachmail;
-using Reachmail.Campaigns.Post.Request;
-using ReachMailDriver.Models;
+﻿using ReachMailDriver.Models;
 using ReachMailDriver.Services.Gateway;
 using ReachMailDriver.Util;
 using System;
@@ -14,7 +12,7 @@ namespace ReachMailDriver.Services
         {
         }
 
-        public bool ScheduleMailingCampaing(Mailer mailer, MailingList mailingList, DateTime dateTime)
+        virtual public bool ScheduleMailingCampaing(Mailer mailer, MailingList mailingList, DateTime dateTime)
         {
             Validate.Begin()
                 .IsNotNull(mailer, "mailer")

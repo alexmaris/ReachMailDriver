@@ -14,7 +14,7 @@ namespace ReachMailDriver.Services
         {
         }
 
-        public MailingList CreateMailingList(String listName)
+        virtual public MailingList CreateMailingList(String listName)
         {
             Validate.Begin()
                 .IsNotNullOrEmpty(listName, "listName");
@@ -24,7 +24,7 @@ namespace ReachMailDriver.Services
             return new MailingList(listId, listName);
         }
 
-        public MailingList CreateMailingList(String listName, ICollection<String> recipientEmails)
+        virtual public MailingList CreateMailingList(String listName, ICollection<String> recipientEmails)
         {
             var mailingList = CreateMailingList(listName);
 
@@ -34,8 +34,5 @@ namespace ReachMailDriver.Services
 
             return mailingList;
         }
-
-
-
     }
 }

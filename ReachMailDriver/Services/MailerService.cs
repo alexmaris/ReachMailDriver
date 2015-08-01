@@ -1,13 +1,7 @@
-﻿using Reachmail;
-using Reachmail.Mailings.Post.Request;
-using ReachMailDriver.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ReachMailDriver.Util;
+﻿using ReachMailDriver.Models;
 using ReachMailDriver.Services.Gateway;
+using ReachMailDriver.Util;
+using System;
 
 namespace ReachMailDriver.Services
 {
@@ -18,7 +12,7 @@ namespace ReachMailDriver.Services
         {
         }
 
-        public Mailer CreateMailer(String name, String fromEmail, String fromName, String replyToEmail, String subject, String textContent)
+        virtual public Mailer CreateMailer(String name, String fromEmail, String fromName, String replyToEmail, String subject, String textContent)
         {
             Validate.Begin()
                 .IsNotNullOrEmpty(name, "name")

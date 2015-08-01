@@ -18,14 +18,14 @@ namespace ReachMailDriver.Models
         {
             this.Name = name;
             this.FromEmail = fromEmail;
-            this.FromName = FromName;
+            this.FromName = fromEmail;
             this.ReplyToEmail = replyToEmail;
             this.Subject = subject;
             this.TextContent = textContent;
         }
 
-        public Mailer(Guid id, String name, String fromEmail, String fromName, String replyToEmail, String subject, String textContent):
-            this (name,fromEmail,fromName,replyToEmail, subject, textContent)
+        public Mailer(Guid id, String name, String fromEmail, String fromName, String replyToEmail, String subject, String textContent) :
+            this(name, fromEmail, fromName, replyToEmail, subject, textContent)
         {
             this.Id = id;
         }

@@ -15,12 +15,13 @@ namespace ReachMailDriver
 
         static void Main(string[] args)
         {
+
             // Instantiate required services and the ReachMailApiGateway with a valid API key
             var gateway = new ReachMailApiGateway(ConfigurationManager.AppSettings["ReachMailAPIKey"]);
 
-            var campaignService = new CampaignService(gateway);
-            var mailerService = new MailerService(gateway);
-            var listService = new MailingListService(gateway);
+            var campaignService = ServiceFactory.Instance.getService<CampaignService>(gateway);
+            var mailerService = ServiceFactory.Instance.getService<MailerService>(gateway);
+            var listService = ServiceFactory.Instance.getService<MailingListService>(gateway);
 
             Console.WriteLine("ReachMail API Test - creating a new list, mailer, and campaign." + Environment.NewLine);
 
@@ -32,16 +33,17 @@ namespace ReachMailDriver
             // Create Mailer
             var mailer = mailerService.CreateMailer(
                 "Hello World mailer",
-                "alexandru.maris@gmail.com", 
-                "Alex Maris", 
-                "alexandru.maris@gmail.com", 
-                "Hello World Mailer", 
+                "alexandru.maris@gmail.com",
+                "Alex Maris",
+                "alexandru.maris@gmail.com",
+                "Hello World Mailer",
                 "Hello World!");
 
             // Schedule Mailer
             campaignService.ScheduleMailingCampaing(mailer, mailList, DateTime.Now.AddSeconds(10));
 
             Console.WriteLine("Done - check your email!");
+            Console.ReadKey();
         }
     }
 }
